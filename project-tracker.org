@@ -1,0 +1,4 @@
+* What To Do Next
+** TODO get started with qt python binding
+*** DONE listen the clipboard
+*** TODO find out how to organize the project structure
