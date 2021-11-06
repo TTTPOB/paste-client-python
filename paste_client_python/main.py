@@ -8,4 +8,5 @@ if __name__ == "__main__":
     tray = widget.tray
     # tray.show()
     widget.show()
+    app.setQuitOnLastWindowClosed(False)
     sys.exit(app.exec())

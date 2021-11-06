@@ -1,5 +1,7 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 from PySide6.QtGui import QGuiApplication
+# from system_tray import system_tray
+from qtgui.system_tray import system_tray
 import random
 
 
@@ -12,7 +14,8 @@ class clipboard_window(QtWidgets.QWidget):
         self.text = QtWidgets.QTextEdit("Hello World___")
         self.clipboard = QGuiApplication.clipboard()
 
-        self.tray = QtWidgets.QSystemTrayIcon(QtGui.QIcon("../resources/icon/tray.svg"),self)
+        # self.tray = QtWidgets.QSystemTrayIcon(QtGui.QIcon("../resources/icon/tray.svg"),self)
+        self.tray = system_tray()
         self.tray.show()
 
         self.layout = QtWidgets.QVBoxLayout(self)
@@ -21,6 +24,7 @@ class clipboard_window(QtWidgets.QWidget):
 
         self.button.clicked.connect(self.on_button_clicked)
         self.clipboard.dataChanged.connect(self.on_clipboard_changed)
+
 
     @QtCore.Slot()
     def on_button_clicked(self):

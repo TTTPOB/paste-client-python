@@ -4,9 +4,15 @@
 
 *** DONE listen the clipboard
 
+*** learn what is signal and slot in qt
+
 *** WORKING add a functional systray
 **** DONE know how to add a systray
 **** find out what menu I should add the the systray
+show mainwindow, exit
+**** WORKING hhh, I was wrong about the systray, I thought it should be added in a new class but it turns out i should add in in the mainwindow class
+**** check this https://stackoverflow.com/questions/47561840/how-can-i-separate-functions-of-class-into-multiple-files
+
 
 *** WORKING find out how to organize the project structure
 **** WORKING added resource folder, but I should use a qrc file
