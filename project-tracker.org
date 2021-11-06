@@ -1,4 +1,23 @@
 * What To Do Next
-** TODO get started with qt python binding
+
+** WORKING get started with qt python binding
+
 *** DONE listen the clipboard
-*** TODO find out how to organize the project structure
+
+*** WORKING add a functional systray
+**** DONE know how to add a systray
+**** find out what menu I should add the the systray
+
+*** WORKING find out how to organize the project structure
+**** WORKING added resource folder, but I should use a qrc file
+**** TODO pick a nice looking icon
+
+*** TODO set up the websocket part
+**** able to push message to the server when the clipboard changes
+**** able to set clipboard when the server sends a message
+
+** fancy part of the project
+*** clipboard history
+**** choose a db backend
+**** able to view the history
+**** able to search the history
