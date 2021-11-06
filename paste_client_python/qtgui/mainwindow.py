@@ -1,4 +1,4 @@
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore, QtWidgets, QtGui
 from PySide6.QtGui import QGuiApplication
 import random
 
@@ -11,6 +11,9 @@ class clipboard_window(QtWidgets.QWidget):
         self.button = QtWidgets.QPushButton("Hello World")
         self.text = QtWidgets.QTextEdit("Hello World___")
         self.clipboard = QGuiApplication.clipboard()
+
+        self.tray = QtWidgets.QSystemTrayIcon(QtGui.QIcon("../resources/icon/tray.svg"),self)
+        self.tray.show()
 
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.button)

@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1636174559174" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2434" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css">@font-face { font-family: Arial; src: local("Sarasa UI SC"); }
+@font-face { font-family: arial; src: local("Sarasa UI SC"); }
+@font-face { font-family: "12px/1.5 arial"; src: local("Sarasa UI SC"); }
+@font-face { font-family: Tahoma; src: local("Sarasa UI SC"); }
+@font-face { font-family: tahoma; src: local("Sarasa UI SC"); }
+@font-face { font-family: Verdana; src: local("Sarasa UI SC"); }
+@font-face { font-family: "Helvetica Neue"; src: local("Sarasa UI SC"); }
+@font-face { font-family: Helvetica; src: local("Sarasa UI SC"); }
+@font-face { font-family: "Segoe UI"; src: local("Sarasa UI SC"); }
+@font-face { font-family: Courier; src: local("Sarasa Mono SC"); }
+@font-face { font-family: "Courier New"; src: local("Sarasa Mono SC"); }
+@font-face { font-family: Consolas; src: local("Sarasa Mono SC"); }
+@font-face { font-family: SimSun; src: local("Sarasa UI SC"); }
+@font-face { font-family: SimSun-ExtB; src: local("Sarasa UI SC"); }
+@font-face { font-family: 宋体; src: local("Sarasa UI SC"); }
+@font-face { font-family: 宋体; src: local("Sarasa UI SC"); }
+@font-face { font-family: "Hiragino Sans GB"; src: local("Sarasa UI SC"); }
+@font-face { font-family: 宋体; src: local("Sarasa UI SC"); }
+@font-face { font-family: NSimSun; src: local("Sarasa UI SC"); }
+@font-face { font-family: 新宋体; src: local("Sarasa UI SC"); }
+@font-face { font-family: SimHei; src: local("Sarasa UI SC"); }
+@font-face { font-family: 黑体; src: local("Sarasa UI SC"); }
+@font-face { font-family: "Microsoft YaHei"; src: local("Sarasa UI SC"); }
+@font-face { font-family: "Microsoft YaHei UI"; src: local("Sarasa UI SC"); }
+@font-face { font-family: 微软雅黑UI; src: local("Sarasa UI SC"); }
+@font-face { font-family: 微软雅黑; src: local("Sarasa UI SC"); }
+@font-face { font-family: "STHeiti SC"; src: local("Sarasa UI SC"); }
+@font-face { font-family: MingLiU; src: local("Sarasa UI TC"); }
+@font-face { font-family: MingLiU-ExtB; src: local("Sarasa UI TC"); }
+@font-face { font-family: MingLiU_HKSCS; src: local("Sarasa UI TC"); }
+@font-face { font-family: MingLiU_HKSCS-ExtB; src: local("Sarasa UI TC"); }
+@font-face { font-family: PMingLiU; src: local("Sarasa UI TC"); }
+@font-face { font-family: PMingLiU-ExtB; src: local("Sarasa UI TC"); }
+@font-face { font-family: "STHeiti TC"; src: local("PingFang TC"); }
+</style></defs><path d="M341.333333 128v21.333333A64 64 0 0 0 405.333333 213.333333h213.333334A64 64 0 0 0 682.666667 149.333333V128h85.333333a85.333333 85.333333 0 0 1 85.333333 85.333333v682.666667a85.333333 85.333333 0 0 1-85.333333 85.333333H256a85.333333 85.333333 0 0 1-85.333333-85.333333V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333h85.333333z" fill="#000000" opacity=".3" p-id="2435"></path><path d="M469.333333 85.333333a42.666667 42.666667 0 0 1 85.333334 0h64a21.333333 21.333333 0 0 1 21.333333 21.333334v42.666666a21.333333 21.333333 0 0 1-21.333333 21.333334h-213.333334a21.333333 21.333333 0 0 1-21.333333-21.333334v-42.666666a21.333333 21.333333 0 0 1 21.333333-21.333334H469.333333z" fill="#000000" p-id="2436"></path><path d="M298.666667 426.666667m42.666666 0l128 0q42.666667 0 42.666667 42.666666l0 0q0 42.666667-42.666667 42.666667l-128 0q-42.666667 0-42.666666-42.666667l0 0q0-42.666667 42.666666-42.666666Z" fill="#000000" opacity=".3" p-id="2437"></path><path d="M298.666667 597.333333m42.666666 0l298.666667 0q42.666667 0 42.666667 42.666667l0 0q0 42.666667-42.666667 42.666667l-298.666667 0q-42.666667 0-42.666666-42.666667l0 0q0-42.666667 42.666666-42.666667Z" fill="#000000" opacity=".3" p-id="2438"></path></svg>
