@@ -11,11 +11,12 @@
 **** find out what menu I should add the the systray
 show mainwindow, exit
 **** WORKING hhh, I was wrong about the systray, I thought it should be added in a new class but it turns out i should add in in the mainwindow class
-**** check this https://stackoverflow.com/questions/47561840/how-can-i-separate-functions-of-class-into-multiple-files
+**** TODO check this https://stackoverflow.com/questions/47561840/how-can-i-separate-functions-of-class-into-multiple-files
+**** TODO try connect the qwebsocket to server
 
 
-*** WORKING find out how to organize the project structure
-**** WORKING added resource folder, but I should use a qrc file
+*** TODO find out how to organize the project structure
+**** TODO added resource folder, but I should use a qrc file
 **** TODO pick a nice looking icon
 
 *** TODO set up the websocket part
