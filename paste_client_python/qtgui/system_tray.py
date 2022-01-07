@@ -1,5 +1,6 @@
 from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtGui import QGuiApplication
+from .page_collection import config_page
 
 
 class system_tray(QtWidgets.QSystemTrayIcon):
@@ -14,6 +15,10 @@ class system_tray(QtWidgets.QSystemTrayIcon):
         self.quit.triggered.connect(self.on_quit)
         self.menu.addAction(self.quit)
 
+        self.show_config_page = QtGui.QAction("Show Config Page", self)
+        self.show_config_page.triggered.connect(self.on_config_page)
+        self.menu.addAction(self.show_config_page)
+
         self.activated.connect(self.on_activated)
 
         self.setContextMenu(self.menu)
@@ -25,6 +30,10 @@ class system_tray(QtWidgets.QSystemTrayIcon):
 
     def on_quit(self):
         QGuiApplication.quit()
+    
+    def on_config_page(self):
+        self.config_page = config_page()
+        self.config_page.show()
 
     def showMessage(self):
         msg = QtWidgets.QMessageBox()

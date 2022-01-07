@@ -1,7 +1,7 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 from PySide6.QtGui import QGuiApplication
 # from system_tray import system_tray
-from qtgui.system_tray import system_tray
+from .system_tray import system_tray
 import random
 from PySide6.QtWebSockets import QWebSocket
 

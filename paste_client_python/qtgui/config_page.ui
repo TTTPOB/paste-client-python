@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>config_page</class>
+ <widget class="QWidget" name="config_page">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>419</width>
+    <height>584</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>config page</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>311</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="uid_label">
+      <property name="text">
+       <string>user id</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="cid_label">
+      <property name="text">
+       <string>client id</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_2"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="pubkey_label">
+      <property name="text">
+       <string>client pub key</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="pubkey_content">
+      <property name="text">
+       <string>empty pub key</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="priv_key_label">
+      <property name="text">
+       <string>client priv key</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="privkey_content">
+      <property name="text">
+       <string>empty priv key</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="refresh_config_button">
+        <property name="text">
+         <string>Load Config</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="generate_new_keypair_botton">
+        <property name="text">
+         <string>Generate Key Pair</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="save_config_button">
+        <property name="text">
+         <string>Save Config</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

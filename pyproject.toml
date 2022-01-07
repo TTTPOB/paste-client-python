@@ -11,6 +11,7 @@ python = ">=3.9,<3.11"
 [tool.poetry.dev-dependencies]
 black = {version = "*", allow-prereleases = true}
 pytest = "^5.2"
+pyinstaller = "^4.7"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
