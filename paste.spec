@@ -4,10 +4,10 @@
 block_cipher = None
 
 
-a = Analysis(['paste_client_python\\__main__.py'],
+a = Analysis(['paste_client_python\\launcher.py'],
              pathex=[],
              binaries=[],
-             datas=[],
+             datas=[("resources\\icon\\*", "resources\\icon")],
              hiddenimports=['paste_client_python', ".\\paste_client_python\\qtgui"],
              hookspath=[],
              hooksconfig={},
