@@ -1,4 +1,4 @@
-from .qtgui.mainwindow import clipboard_window
+from .qtgui.main_window.mainwindow import clipboard_window
 from PySide6 import QtWidgets
 import sys
 
