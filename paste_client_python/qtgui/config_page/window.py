@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'config_page.ui'
+## Form generated from reading UI file 'window.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.1
 ##
@@ -29,25 +29,35 @@ class Ui_config_page(object):
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.server_address_label = QLabel(self.verticalLayoutWidget)
+        self.server_address_label.setObjectName(u"server_address_label")
+
+        self.verticalLayout.addWidget(self.server_address_label)
+
+        self.server_address_textbox = QLineEdit(self.verticalLayoutWidget)
+        self.server_address_textbox.setObjectName(u"server_address_textbox")
+
+        self.verticalLayout.addWidget(self.server_address_textbox)
+
         self.uid_label = QLabel(self.verticalLayoutWidget)
         self.uid_label.setObjectName(u"uid_label")
 
         self.verticalLayout.addWidget(self.uid_label)
 
-        self.lineEdit = QLineEdit(self.verticalLayoutWidget)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.user_id_textbox = QLineEdit(self.verticalLayoutWidget)
+        self.user_id_textbox.setObjectName(u"user_id_textbox")
 
-        self.verticalLayout.addWidget(self.lineEdit)
+        self.verticalLayout.addWidget(self.user_id_textbox)
 
         self.cid_label = QLabel(self.verticalLayoutWidget)
         self.cid_label.setObjectName(u"cid_label")
 
         self.verticalLayout.addWidget(self.cid_label)
 
-        self.lineEdit_2 = QLineEdit(self.verticalLayoutWidget)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.client_id_textbox = QLineEdit(self.verticalLayoutWidget)
+        self.client_id_textbox.setObjectName(u"client_id_textbox")
 
-        self.verticalLayout.addWidget(self.lineEdit_2)
+        self.verticalLayout.addWidget(self.client_id_textbox)
 
         self.pubkey_label = QLabel(self.verticalLayoutWidget)
         self.pubkey_label.setObjectName(u"pubkey_label")
@@ -97,6 +107,7 @@ class Ui_config_page(object):
 
     def retranslateUi(self, config_page):
         config_page.setWindowTitle(QCoreApplication.translate("config_page", u"config page", None))
+        self.server_address_label.setText(QCoreApplication.translate("config_page", u"server address", None))
         self.uid_label.setText(QCoreApplication.translate("config_page", u"user id", None))
         self.cid_label.setText(QCoreApplication.translate("config_page", u"client id", None))
         self.pubkey_label.setText(QCoreApplication.translate("config_page", u"client pub key", None))

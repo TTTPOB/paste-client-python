@@ -24,6 +24,16 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QLabel" name="server_address_label">
+      <property name="text">
+       <string>server address</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="server_address_textbox"/>
+    </item>
+    <item>
      <widget class="QLabel" name="uid_label">
       <property name="text">
        <string>user id</string>
@@ -31,7 +41,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="user_id_textbox"/>
     </item>
     <item>
      <widget class="QLabel" name="cid_label">
@@ -41,7 +51,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_2"/>
+     <widget class="QLineEdit" name="client_id_textbox"/>
     </item>
     <item>
      <widget class="QLabel" name="pubkey_label">

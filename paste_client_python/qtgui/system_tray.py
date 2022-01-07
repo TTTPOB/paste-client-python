@@ -1,6 +1,6 @@
 from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtGui import QGuiApplication
-from .page_collection import config_page
+from .config_page.config_page import config_page
 
 
 class system_tray(QtWidgets.QSystemTrayIcon):
