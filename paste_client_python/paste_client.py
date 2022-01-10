@@ -1,5 +1,6 @@
 __package__ = "paste_client_python"
 from yaml import safe_load
+import time
 from pathlib import Path
 from .qtgui.main_window.mainwindow import clipboard_window
 from .qtgui.system_tray import system_tray
@@ -48,21 +49,40 @@ class paste_client:
 
         if self.server_address:
             self.ws = QWebSocket()
-            print("connecting to " + self.server_address)
+
+            self.ws_retry_max = 10
+            self.ws_retry_count = 1
+
             self.ws.connected.connect(self.on_ws_connected)
             self.ws.textMessageReceived.connect(self.on_ws_received)
             self.ws.error.connect(self.on_ws_error)
+            self.ws.disconnected.connect(self.on_ws_disconnected)
+
+            print("connecting to " + self.server_address)
             self.ws.open(self.server_address)
+            print("connected")
 
         self.clipboard = QtWidgets.QApplication.clipboard()
+        print("clipboard initialized")
         self.clipboard.dataChanged.connect(self.on_clipboard_changed)
 
     def on_ws_connected(self):
         print("websocket connected")
         self.ws.sendTextMessage("Hello World")
+        self.ws_retry_count = 1
+
+    def on_ws_disconnected(self):
+        print("websocket disconnected")
+        for i in range(self.ws_retry_max):
+            time.sleep(1)
+            print(f"retry {i}")
+            if not self.ws.isValid():
+                self.ws.open(self.server_address)
+            else:
+                break
 
     def on_ws_error(self, error):
-        print("websocket error: " + error)
+        print(f"websocket error: {error}")
 
     def on_ws_received(self, message):
         print("websocket received: " + message)
@@ -71,3 +91,4 @@ class paste_client:
     def on_clipboard_changed(self):
         print("clipboard changed")
         self.main_window.ui.current_clipboard_textview.setText(self.clipboard.text())
+        self.ws.sendTextMessage(self.clipboard.text())
