@@ -1,4 +1,4 @@
-__package__ = 'paste_client_python'
+__package__ = "paste_client_python"
 from yaml import safe_load
 from pathlib import Path
 from .qtgui.main_window.mainwindow import clipboard_window
@@ -29,6 +29,7 @@ class paste_client_config:
                 self.cid = ""
                 self.pubkey = ""
                 self.privkey = ""
+
     def update_from_config_page(self, config_page):
         self.server_address = config_page.ui.server_address_content.text()
         self.uid = config_page.ui.uid_content.text()
@@ -55,13 +56,14 @@ class paste_client:
 
         self.clipboard = QtWidgets.QApplication.clipboard()
         self.clipboard.dataChanged.connect(self.on_clipboard_changed)
-    
+
     def on_ws_connected(self):
         print("websocket connected")
         self.ws.sendTextMessage("Hello World")
+
     def on_ws_error(self, error):
         print("websocket error: " + error)
-    
+
     def on_ws_received(self, message):
         print("websocket received: " + message)
 
