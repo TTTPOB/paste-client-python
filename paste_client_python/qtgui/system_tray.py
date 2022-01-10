@@ -4,9 +4,11 @@ from .config_page.config_page import config_page
 
 
 class system_tray(QtWidgets.QSystemTrayIcon):
-    def __init__(self):
+    # from ..paste_client import paste_client
+    def __init__(self, parent):
         super().__init__()
         self.menu = QtWidgets.QMenu()
+        self.parent = parent
 
         self.setIcon(QtGui.QIcon("resources/icon/tray.svg"))
         self.setToolTip("Paste Client")
@@ -18,6 +20,10 @@ class system_tray(QtWidgets.QSystemTrayIcon):
         self.show_config_page = QtGui.QAction("Show Config Page", self)
         self.show_config_page.triggered.connect(self.on_config_page)
         self.menu.addAction(self.show_config_page)
+
+        self.show_clipboard_page = QtGui.QAction("Show Clipboard Page", self)
+        self.show_clipboard_page.triggered.connect(self.on_clipboard_page)
+        self.menu.addAction(self.show_clipboard_page)
 
         self.activated.connect(self.on_activated)
 
@@ -34,6 +40,9 @@ class system_tray(QtWidgets.QSystemTrayIcon):
     def on_config_page(self):
         self.config_page = config_page()
         self.config_page.show()
+
+    def on_clipboard_page(self):
+        self.parent.main_window.show()
 
     def showMessage(self):
         msg = QtWidgets.QMessageBox()

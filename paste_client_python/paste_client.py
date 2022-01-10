@@ -43,7 +43,7 @@ class paste_client:
         for key in config.keys():
             setattr(self, key, config[key])
         self.main_window = clipboard_window()
-        self.tray = system_tray()
+        self.tray = system_tray(self)
         self.config_page = config_page()
 
         if self.server_address:
