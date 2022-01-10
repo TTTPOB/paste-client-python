@@ -5,7 +5,7 @@ from .qtgui.main_window.mainwindow import clipboard_window
 from .qtgui.system_tray import system_tray
 from .qtgui.config_page.config_page import config_page
 from PySide6.QtWebSockets import QWebSocket
-from PySide6 import QtWidgets
+from PySide6 import QtWidgets, QtCore
 
 
 class paste_client_config:
@@ -67,6 +67,7 @@ class paste_client:
     def on_ws_received(self, message):
         print("websocket received: " + message)
 
-    def on_clipboard_changed(self, clipboard):
+    @QtCore.Slot()
+    def on_clipboard_changed(self):
         print("clipboard changed")
         self.main_window.ui.current_clipboard_textview.setText(self.clipboard.text())
