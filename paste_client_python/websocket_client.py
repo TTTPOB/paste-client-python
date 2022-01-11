@@ -18,16 +18,13 @@ class websocket_client(QObject):
         self.ws.connected.connect(lambda: self.on_connected())
         self.ws.disconnected.connect(lambda: self.on_disconnected())
 
-    @QtCore.Slot(str)
     def on_text_message_received(self, message):
         print("websocket received: " + message)
 
-    @QtCore.Slot()
     def on_connected(self):
         print("websocket connected")
         self.ws.sendTextMessage("Hello World")
 
-    @QtCore.Slot()
     def on_disconnected(self):
         # auto retry
         for i in range(self.max_retry):
