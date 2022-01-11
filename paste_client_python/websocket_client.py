@@ -6,7 +6,7 @@ from typing import Optional
 # make a new websocket client class to enable websockt to be run in
 # a separate thread
 class websocket_client(QObject):
-    def __init__(self, url: str, max_retry: int=5) -> None:
+    def __init__(self, url: str, max_retry: int = 5) -> None:
         super().__init__()
         self.url = url
         self.max_retry = max_retry
