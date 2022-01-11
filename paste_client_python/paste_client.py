@@ -60,7 +60,7 @@ class paste_client:
             self.ws.moveToThread(self.ws_thread)
             print("connecting to " + self.server_address)
             self.ws.start_connection()
-            print("connected")
+            print(f"connection state: {self.ws.ws.isValid()}")
 
         self.clipboard = QtWidgets.QApplication.clipboard()
         print("clipboard initialized")
