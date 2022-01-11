@@ -9,6 +9,7 @@ from PySide6.QtWebSockets import QWebSocket
 from PySide6 import QtWidgets, QtCore
 from nacl.public import PublicKey, PrivateKey
 from nacl.encoding import HexEncoder
+from PySide6.QtCore import QThread, QThreadPool, QObject, Signal, Slot
 
 
 class paste_client_config:
@@ -46,11 +47,13 @@ class paste_client:
         for key in config.keys():
             setattr(self, key, config[key])
         self.main_window = clipboard_window()
+        self.ws_thread = QThread()
         self.tray = system_tray(self)
         self.config_page = config_page()
         self.config_page.set_parent(self)
 
         if self.server_address:
+            # https://forum.qt.io/topic/85768/errors-facing-while-running-qwebsocket-in-different-thread-than-the-main-thread/3
             self.ws = QWebSocket()
 
             self.ws_retry_max = 10
@@ -61,6 +64,7 @@ class paste_client:
             self.ws.error.connect(self.on_ws_error)
             self.ws.disconnected.connect(self.on_ws_disconnected)
 
+            self.ws.moveToThread(self.ws_thread)
             print("connecting to " + self.server_address)
             self.ws.open(self.server_address)
             print("connected")
