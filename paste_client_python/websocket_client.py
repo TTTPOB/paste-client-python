@@ -27,16 +27,13 @@ class websocket_client(QObject):
         self.ws.sendTextMessage("Hello World")
 
     def on_disconnected(self):
-        # auto retry
-        for i in range(self.max_retry):
-            del self.ws
-            sleep(1)
-            print("websocket disconnected, retry: " + str(i))
-            self.start_connection()
-            sleep(2)
-            print(f"connction status: {self.ws.isValid()}")
-            if self.ws.isValid():
-                break
+        print(f"ws disconnected")
+        self.reconnect()
+    
+    def reconnect(self):
+        print(f"trying to reconnect to {self.url}")
+        self.ws.open(self.url)
+        print(f"connection status: {self.ws.isValid()}")
 
 
     def sendTextMessage(self, message):
