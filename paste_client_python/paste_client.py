@@ -69,11 +69,13 @@ class paste_client:
         print("clipboard initialized")
         self.clipboard.dataChanged.connect(self.on_clipboard_changed)
 
+    @QtCore.Slot()
     def on_ws_connected(self):
         print("websocket connected")
         self.ws.sendTextMessage("Hello World")
         self.ws_retry_count = 1
 
+    @QtCore.Slot()
     def on_ws_disconnected(self):
         print("websocket disconnected")
         for i in range(self.ws_retry_max):
@@ -84,9 +86,11 @@ class paste_client:
             else:
                 break
 
+    @QtCore.Slot(Exception)
     def on_ws_error(self, error):
         print(f"websocket error: {error}")
 
+    @QtCore.Slot(str)
     def on_ws_received(self, message):
         print("websocket received: " + message)
 
