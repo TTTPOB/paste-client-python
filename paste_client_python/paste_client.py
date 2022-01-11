@@ -10,6 +10,7 @@ from PySide6 import QtWidgets, QtCore
 from nacl.public import PublicKey, PrivateKey
 from nacl.encoding import HexEncoder
 from PySide6.QtCore import QThread, QThreadPool, QObject, Signal, Slot
+from .websocket_client import websocket_client
 
 
 class paste_client_config:
@@ -51,52 +52,19 @@ class paste_client:
         self.tray = system_tray(self)
         self.config_page = config_page()
         self.config_page.set_parent(self)
+        print(f"main thread id {QtCore.QThread.currentThread()}")
 
         if self.server_address:
-            # https://forum.qt.io/topic/85768/errors-facing-while-running-qwebsocket-in-different-thread-than-the-main-thread/3
-            self.ws = QWebSocket()
-
-            self.ws_retry_max = 10
-            self.ws_retry_count = 1
-
-            self.ws.connected.connect(self.on_ws_connected)
-            self.ws.textMessageReceived.connect(self.on_ws_received)
-            self.ws.error.connect(self.on_ws_error)
-            self.ws.disconnected.connect(self.on_ws_disconnected)
+            self.ws = websocket_client(self.server_address)
 
             self.ws.moveToThread(self.ws_thread)
             print("connecting to " + self.server_address)
-            self.ws.open(self.server_address)
+            self.ws.start_connection()
             print("connected")
 
         self.clipboard = QtWidgets.QApplication.clipboard()
         print("clipboard initialized")
         self.clipboard.dataChanged.connect(self.on_clipboard_changed)
-
-    @QtCore.Slot()
-    def on_ws_connected(self):
-        print("websocket connected")
-        self.ws.sendTextMessage("Hello World")
-        self.ws_retry_count = 1
-
-    @QtCore.Slot()
-    def on_ws_disconnected(self):
-        print("websocket disconnected")
-        for i in range(self.ws_retry_max):
-            time.sleep(1)
-            print(f"retry {i}")
-            if not self.ws.isValid():
-                self.ws.open(self.server_address)
-            else:
-                break
-
-    @QtCore.Slot(Exception)
-    def on_ws_error(self, error):
-        print(f"websocket error: {error}")
-
-    @QtCore.Slot(str)
-    def on_ws_received(self, message):
-        print("websocket received: " + message)
 
     @QtCore.Slot()
     def on_clipboard_changed(self):
