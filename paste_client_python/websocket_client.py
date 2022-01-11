@@ -2,6 +2,7 @@ from PySide6 import QtCore
 from PySide6.QtWebSockets import QWebSocket
 from PySide6.QtCore import QObject
 from typing import Optional
+from time import sleep
 
 # make a new websocket client class to enable websockt to be run in
 # a separate thread
@@ -28,10 +29,15 @@ class websocket_client(QObject):
     def on_disconnected(self):
         # auto retry
         for i in range(self.max_retry):
+            del self.ws
+            sleep(1)
             print("websocket disconnected, retry: " + str(i))
             self.start_connection()
-            if self.ws.state() == QWebSocket.ConnectedState:
+            sleep(2)
+            print(f"connction status: {self.ws.isValid()}")
+            if self.ws.isValid():
                 break
+
 
     def sendTextMessage(self, message):
         self.ws.sendTextMessage(message)
