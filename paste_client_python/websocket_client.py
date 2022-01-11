@@ -13,11 +13,10 @@ class websocket_client(QObject):
 
     def start_connection(self):
         self.ws = QWebSocket()
-        self.ws.textMessageReceived.connect(self.on_text_message_received)
-        self.ws.connected.connect(self.on_connected)
-        self.ws.disconnected.connect(self.on_disconnected)
         self.ws.open(self.url)
-        print(f"ws thread id: {QtCore.QThread.currentThread()}")
+        print(f"ws thread id: {self.thread()}")
+        self.ws.connected.connect(lambda: self.on_connected())
+        self.ws.disconnected.connect(lambda: self.on_disconnected())
 
     @QtCore.Slot(str)
     def on_text_message_received(self, message):
