@@ -38,8 +38,7 @@ class system_tray(QtWidgets.QSystemTrayIcon):
         QGuiApplication.quit()
     
     def on_config_page(self):
-        self.config_page = config_page()
-        self.config_page.show()
+        self.parent.config_page.show()
 
     def on_clipboard_page(self):
         self.parent.main_window.show()

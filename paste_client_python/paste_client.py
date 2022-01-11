@@ -7,6 +7,8 @@ from .qtgui.system_tray import system_tray
 from .qtgui.config_page.config_page import config_page
 from PySide6.QtWebSockets import QWebSocket
 from PySide6 import QtWidgets, QtCore
+from nacl.public import PublicKey, PrivateKey
+from nacl.encoding import HexEncoder
 
 
 class paste_client_config:
@@ -46,6 +48,7 @@ class paste_client:
         self.main_window = clipboard_window()
         self.tray = system_tray(self)
         self.config_page = config_page()
+        self.config_page.set_parent(self)
 
         if self.server_address:
             self.ws = QWebSocket()
@@ -92,3 +95,16 @@ class paste_client:
         print("clipboard changed")
         self.main_window.ui.current_clipboard_textview.setText(self.clipboard.text())
         self.ws.sendTextMessage(self.clipboard.text())
+
+    @QtCore.Slot()
+    def generate_new_keypair(self):
+        print("button clicked")
+        key_pair = PrivateKey.generate()
+        self.key_pair = key_pair
+
+        self.config_page.ui.pubkey_content.setText(
+            key_pair.public_key.encode(encoder=HexEncoder).decode()
+        )
+        self.config_page.ui.privkey_content.setText(
+            key_pair.encode(encoder=HexEncoder).decode()
+        )
